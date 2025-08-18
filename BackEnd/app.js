@@ -28,12 +28,13 @@ app.use(expressSession({
 app.use(flash())
 app.use(express.static(path.join(__dirname,"public")))
 app.set('view engine','ejs')
+app.set('views', path.join(__dirname, 'views'))
 
-app.use('/',indexRouter)
-app.use('/owner',ownerRouter)
-app.use('/users',usersRouter)
-app.use('/products',productsRouter)
+app.use('/', indexRouter)
+app.use('/owner', ownerRouter)
+app.use('/users', usersRouter)
+app.use('/products', productsRouter)
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`Server is running on port : http://localhost:${PORT}`)
 })
